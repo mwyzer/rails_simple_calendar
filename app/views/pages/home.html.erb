@@ -1,0 +1,30 @@
+<div class="container mt-5 text-center">
+    <h1>Pages#home</h1>
+    <p>Find me in /app/views/pages/home.html.erb</p>
+    <%= month_calendar(events: @consultations) do |date, consultations| %>
+        <div class="day">
+            <%= date.day %>
+        </div>
+        <% consultations.each do |consultation| %>
+            <div class="card-header">
+                <div class="card-title">
+                    <%= consultation.title, consultation %>
+                </div>
+            </div>
+            <div class="card-body">
+                <p class="card text">
+                    <%= consultation.description %>
+                </p>
+            </div>
+            <div class="Card-footer">
+                <p class="card-text">
+                    From : <%= consultation.start_time.strftime('%A, %e %B %Y at %H:%M') %>
+                </p>
+                 <p class="card-text">
+                    From : <%= consultation.end_time.strftime('%A, %e %B %Y at %H:%M') %>
+                </p>
+            </div> 
+        <%=end%>
+    <% end %>
+</div>
+
